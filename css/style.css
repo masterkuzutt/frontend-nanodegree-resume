@@ -101,7 +101,8 @@ a {
 
 #skills-h3 {
   color: #f5ae23;
-  display: none;
+  /*[TODO]  did I wrote below ? need to check diff*/
+  /*display: none;　d*/
 }
 
 .orange {

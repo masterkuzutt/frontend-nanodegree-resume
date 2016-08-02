@@ -1,4 +1,5 @@
-var bio{
+
+var bio = {
       "name": "Takahiro Sakai",
       "role": "Web Developer",
       "contacts" : {
@@ -14,14 +15,14 @@ var bio{
       ],
       "bioPic": "images/my.jpg"
     },
-    education : {
+    education = {
       "schools": [
         {
           "name": "Toyo university",
           "city": "Tokyo JP",
           "degree": "Blchelor",
           "majors" : "Economics",
-          "dates" 2005,
+          "dates":  2005,
           "url" : "http://example.com"
         }
       ],
@@ -37,18 +38,18 @@ var bio{
     work = {
       "jobs" : [
         {
-          "position": "Leading Private",
+          "title": "Leading Private",
           "employer": "Japan Self Defence Forces",
-          "locaiton": "tokyo JP",
+          "location": "tokyo JP",
           "years": "2005-2007",
-          "discripion": ""
+          "discription": "hogehohgeo"
         },
         {
-          "positon": "Engineer",
+          "title": "Engineer",
           "employer": "M.O.C",
-          "locaiton": "tokyo JP",
+          "location": "tokyo JP",
           "years": "2007-2016",
-          "discripion":"hugahoga"
+          "discription":"hugahoga"
         }
       ]
     },
@@ -64,4 +65,66 @@ var bio{
             ]
           }
         ]
-    },
+    }
+;
+
+function displayHeader() {
+  if ( typeof bio.name === 'string'){
+    var formattedNameAndRole = HTMLheaderName.replace('%data%',bio.name)
+                             + HTMLheaderRole.replace('%data%',bio.role);
+    $('#header').prepend(formattedNameAndRole);
+  }
+}
+
+function displayBio() {
+  if (bio.skills.length > 0) {
+    $('#topContacts').append(HTMLskillsStart);
+    for (var i = 0,len = bio.skills.length; i < len ;i++){
+      $('#skills').append(HTMLskills.replace('%data%',bio.skills[i]));
+    }
+  }
+}
+
+function displayWork() {
+  if (work.jobs.length > 0){
+    for (  job in work.jobs){
+      $('#workExperience').append(HTMLworkStart);
+      var workExperienceString = HTMLworkEmployer.replace('%data%',work.jobs[job].employer)
+          + HTMLworkTitle.replace('%data%',work.jobs[job].title)
+          + HTMLworkDates.replace('%data%',work.jobs[job].years)
+          + HTMLworkLocation.replace('%data%',work.jobs[job].location)
+          + HTMLworkDescription.replace('%data%',work.jobs[job].discription);
+      $('.work-entry:last').append(workExperienceString);
+    }
+  }
+}
+
+function addInternationalButton(){
+    $('#main').append(internationalizeButton);
+}
+
+function inName(nameString) {
+  if ( typeof bio.name === 'string'){
+    var nameArray = bio.name.split(' ');
+    return nameArray[0][0].toUpperCase() + nameArray[0].slice(1).toLowerCase() + ' '+  nameArray[1].toUpperCase();
+  }
+}
+
+project.display = function () {
+  if ( project.projects.length > 0) {
+    for ( var pjt in project.projects) {
+        $('#projects').append(HTMLprojectStart);
+        $('.project-entry:last').append(HTMLprojectTitle.replace('%data%',project.projects[pjt].title));
+        $('.project-entry:last').append(HTMLprojectDates.replace('%data%',project.projects[pjt].dates));
+        $('.project-entry:last').append(HTMLprojectDescription.replace('%data%',project.projects[pjt].discription));
+        // [TODO]put images 
+    }
+  }
+}
+
+displayBio();
+displayHeader();
+displayWork();
+project.display();
+
+addInternationalButton();
