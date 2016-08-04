@@ -13,23 +13,26 @@ var bio = {
       "skills": [
         "eat 1 dish a date","eat really first","sleep long time"
       ],
-      "bioPic": "images/fry.jpg",
+      "bioPic": "images/fry.jpg"
 };
 
 bio.display = function () {
-  if ( typeof bio.name === 'string'){
+  if ( typeof bio.name === 'string' ){
     var formattedNameAndRole = HTMLheaderName.replace('%data%',bio.name)
                              + HTMLheaderRole.replace('%data%',bio.role);
     $('#header').prepend(formattedNameAndRole);
   }
+
   bio.displayContacts('#topContacts');
   bio.displayContacts('#footerContacts');
+
   if (bio.skills.length > 0) {
     $('#header').append(HTMLskillsStart);
     for (var i = 0,len = bio.skills.length; i < len ;i++){
       $('#skills').append(HTMLskills.replace('%data%',bio.skills[i]));
     }
   }
+
   if ( typeof bio.bioPic === 'string'){
     $('#skills-h3').before(HTMLbioPic.replace('%data%',bio.bioPic));
   }
@@ -72,7 +75,6 @@ education.display = function () {
 
   if ( schl.length > 0) {
     for ( var i = 0 , len = education.schools.length; i < len ; i++) {
-        /* [TODO] put link to name */
         $('#education').append(HTMLschoolStart);
         $('.education-entry:last').append(HTMLschoolName.replace('%data%',schl[i].name));
         $('.education-entry:last').append(HTMLschoolLocation.replace('%data%',schl[i].location));
@@ -80,10 +82,11 @@ education.display = function () {
         $('.education-entry:last').append(HTMLschoolDates.replace('%data%',schl[i].dates));
     }
   }
+
   if ( online.length > 0) {
     $('#education').append(HTMLonlineClasses);
+
     for ( var i = 0 , len = online.length; i < len ; i++) {
-        /* [TODO] put link to name */
         $('#education').append(HTMLschoolStart);
         $('.education-entry:last').append(HTMLonlineTitle.replace('%data%',online[i].title));
         $('.education-entry:last').append(HTMLonlineSchool.replace('%data%',online[i].school));
@@ -116,6 +119,7 @@ var work = {
 
 work.display = function () {
   var jbs = work.jobs;
+
   if (jbs.length > 0){
     for ( var i = 0,len =  jbs.length; i < len ; i++ ){
       $('#workExperience').append(HTMLworkStart);
@@ -147,12 +151,14 @@ project = {
 
 project.display = function () {
   var pjs = project.projects;
+
   if ( pjs.length > 0) {
     for ( var i = 0, len = pjs.length ; i < len ; i++ ) {
       $('#projects').append(HTMLprojectStart);
       $('.project-entry:last').append(HTMLprojectTitle.replace('%data%',pjs[i].title));
       $('.project-entry:last').append(HTMLprojectDates.replace('%data%',pjs[i].dates));
       $('.project-entry:last').append(HTMLprojectDescription.replace('%data%',pjs[i].discription));
+
       for ( var j = 0, lenImg = pjs[i].images.length ; j < lenImg ; j++  ){
           $('.project-entry:last').append(HTMLprojectImage.replace('%data%',pjs[i].images[j]));
       }
