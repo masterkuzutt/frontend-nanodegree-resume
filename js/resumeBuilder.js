@@ -9,9 +9,9 @@ var bio = {
         "twitter": "masterkuzutt",
         "location": "Suginami-ku Tokyo JP"
       },
-      "welcomeMessage": "hoge huga hoge fuga hoge",
+      "welcomeMessage": "welcome to takahiro's redume page.that's my testing page",
       "skills": [
-        "eat 1 dish a date","wight training"
+        "eat 1 dish a date","eat really first","sleep long time"
       ],
       "bioPic": "images/fry.jpg",
 };
