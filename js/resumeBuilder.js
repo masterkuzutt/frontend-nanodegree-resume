@@ -1,3 +1,5 @@
+var data = '%data%';
+
 var bio = {
       "name": "Takahiro Sakai",
       "role": "Web Developer",
@@ -12,13 +14,13 @@ var bio = {
       "skills": [
         "eat 1 dish a date","eat really first","sleep long time"
       ],
-      "bioPic": "images/fry.jpg"
+      "biopic": "images/fry.jpg"
 };
 
 bio.display = function () {
   if ( typeof bio.name === 'string' ){
-    var formattedNameAndRole = HTMLheaderName.replace('%data%', bio.name) +
-                               HTMLheaderRole.replace('%data%', bio.role);
+    var formattedNameAndRole = HTMLheaderName.replace(data, bio.name) +
+                               HTMLheaderRole.replace(data, bio.role);
     $('#header').prepend(formattedNameAndRole);
   }
 
@@ -28,12 +30,12 @@ bio.display = function () {
   if (bio.skills.length > 0) {
     $('#header').append(HTMLskillsStart);
     for (var skill_i = 0,skill_len = bio.skills.length; skill_i < skill_len ;skill_i++ ){
-      $('#skills').append(HTMLskills.replace('%data%',bio.skills[skill_i]));
+      $('#skills').append(HTMLskills.replace(data,bio.skills[skill_i]));
     }
   }
 
-  if ( typeof bio.bioPic === 'string'){
-    $('#skills-h3').before(HTMLbioPic.replace('%data%',bio.bioPic));
+  if ( typeof bio.biopic === 'string'){
+    $('#skills-h3').before(HTMLbioPic.replace(data,bio.biopic));
   }
 };
 
@@ -42,7 +44,7 @@ bio.displayContacts = function (selector) {
     for ( var contact in  bio.contacts ){
       if ( typeof contact === 'string'){
         var contactInfo = HTMLcontactGeneric.replace('%contact%', contact)
-                                            .replace('%data%', bio.contacts[contact]);
+                                            .replace(data, bio.contacts[contact]);
         $(selector).append(contactInfo);
       }
     }
@@ -77,10 +79,10 @@ education.display = function () {
   if ( schl.length > 0) {
     for ( var schl_i = 0 , schl_len = education.schools.length; schl_i < schl_len ; schl_i++ ) {
         $('#education').append(HTMLschoolStart);
-        $('.education-entry:last').append(HTMLschoolName.replace('%data%',schl[schl_i].name));
-        $('.education-entry:last').append(HTMLschoolLocation.replace('%data%',schl[schl_i].location));
-        $('.education-entry:last').append(HTMLschoolDegree.replace('%data%',schl[schl_i].degree));
-        $('.education-entry:last').append(HTMLschoolDates.replace('%data%',schl[schl_i].dates));
+        $('.education-entry:last').append(HTMLschoolName.replace(data,schl[schl_i].name));
+        $('.education-entry:last').append(HTMLschoolLocation.replace(data,schl[schl_i].location));
+        $('.education-entry:last').append(HTMLschoolDegree.replace(data,schl[schl_i].degree));
+        $('.education-entry:last').append(HTMLschoolDates.replace(data,schl[schl_i].dates));
     }
   }
 
@@ -89,10 +91,10 @@ education.display = function () {
 
     for ( var online_i = 0 , online_len = online.length; online_i < online_len ; online_i++ ) {
         $('#education').append(HTMLschoolStart);
-        $('.education-entry:last').append(HTMLonlineTitle.replace('%data%', online[online_i].title));
-        $('.education-entry:last').append(HTMLonlineSchool.replace('%data%', online[online_i].school));
-        $('.education-entry:last').append(HTMLonlineDates.replace('%data%', online[online_i].dates));
-        $('.education-entry:last').append(HTMLonlineURL.replace('%data%', online[online_i].url));
+        $('.education-entry:last').append(HTMLonlineTitle.replace(data, online[online_i].title));
+        $('.education-entry:last').append(HTMLonlineSchool.replace(data, online[online_i].school));
+        $('.education-entry:last').append(HTMLonlineDates.replace(data, online[online_i].dates));
+        $('.education-entry:last').append(HTMLonlineURL.replace(data, online[online_i].url));
     }
   }
 };
@@ -124,11 +126,11 @@ work.display = function () {
   if (jbs.length > 0){
     for ( var jbs_i = 0,jbs_len =  jbs.length; jbs_i < jbs_len ; jbs_i++ ){
       $('#workExperience').append(HTMLworkStart);
-      var workExperienceString = HTMLworkEmployer.replace('%data%',jbs[jbs_i].employer) +
-          HTMLworkTitle.replace('%data%', jbs[jbs_i].title) +
-          HTMLworkDates.replace('%data%', jbs[jbs_i].dates) +
-          HTMLworkLocation.replace('%data%', jbs[jbs_i].location) +
-          HTMLworkDescription.replace('%data%',jbs[jbs_i].discription);
+      var workExperienceString = HTMLworkEmployer.replace(data,jbs[jbs_i].employer) +
+          HTMLworkTitle.replace(data, jbs[jbs_i].title) +
+          HTMLworkDates.replace(data, jbs[jbs_i].dates) +
+          HTMLworkLocation.replace(data, jbs[jbs_i].location) +
+          HTMLworkDescription.replace(data,jbs[jbs_i].discription);
       $('.work-entry:last').append(workExperienceString);
     }
   }
@@ -156,12 +158,12 @@ project.display = function () {
   if ( pjs.length > 0) {
     for ( var pjs_i = 0, pjs_len = pjs.length ; pjs_i < pjs_len ; pjs_i++ ) {
       $('#projects').append(HTMLprojectStart);
-      $('.project-entry:last').append(HTMLprojectTitle.replace('%data%', pjs[pjs_i].title));
-      $('.project-entry:last').append(HTMLprojectDates.replace('%data%', pjs[pjs_i].dates));
-      $('.project-entry:last').append(HTMLprojectDescription.replace('%data%', pjs[pjs_i].discription));
+      $('.project-entry:last').append(HTMLprojectTitle.replace(data, pjs[pjs_i].title));
+      $('.project-entry:last').append(HTMLprojectDates.replace(data, pjs[pjs_i].dates));
+      $('.project-entry:last').append(HTMLprojectDescription.replace(data, pjs[pjs_i].discription));
 
       for ( var pjs_j = 0, lenImg = pjs[pjs_i].images.length ; pjs_j < lenImg ; pjs_j++ ){
-          $('.project-entry:last').append(HTMLprojectImage.replace('%data%', pjs[pjs_i].images[pjs_j]));
+          $('.project-entry:last').append(HTMLprojectImage.replace(data, pjs[pjs_i].images[pjs_j]));
       }
     }
   }

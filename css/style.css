@@ -14,6 +14,11 @@ h6 {
   font-family: "Roboto", sans-serif;
 }
 
+#main {
+  max-width: 1000px;
+  margin:auto;
+}
+
 .clear-fix {
   overflow: auto;
 }
@@ -130,7 +135,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #525c65;
 }
 
 .flex-box {
@@ -219,4 +224,8 @@ span {
   .biopic {
     display: block;
   }
+}
+
+#footerContacts {
+  background-color: #525c65;
 }
